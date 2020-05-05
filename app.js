@@ -25,31 +25,48 @@ const var_dump = require('var_dump');
 		let colmaskList = document.querySelectorAll(`div.colmask`);
 
 		// Currently not necessary to loop over the worldwide listings.
-		// It's also better to use a more plain for loop here.
-
 		// We only need the first box for U.S. listings. 
 		// See the front CL page for each `div.colmask` if needed for other countries.
 		// Maybe set up an external 'for in loop' in the future here.
 		let boxList = colmaskList[0].querySelectorAll(`div.box`);
 
-
-		// Works: Access directly outside of 'for in loop'
-		//let territoryNameList = boxList[0].querySelectorAll(`h4`);
+		// There are four columns of cities on the page, return that count for informative reasons.
+		container.push( { 'boxListCount': boxList.length } );
 
 		for (let i = 0; i < boxList.length; i++) {
 			
 			let territoryNameList = boxList[i].querySelectorAll(`h4`);
-			
+			let territoryCityList = boxList[i].querySelectorAll(`ul`)
+
+			// gets the per column territory list
+			container.push( { 'territoryNameListCount': territoryNameList.length } )
+
 			for (let q = 0; q < territoryNameList.length; q++) {
-				container.push({ 'territoryName': territoryNameList[q].innerText })
+				let tempContainer = {}
+
 				
 				
+				// construct some of our template object
+				tempContainer['territoryName'] = territoryNameList[q].innerText;
+				tempContainer['territoryCityListCount'] = territoryCityList.length;
+				tempContainer['cities'] = [];
+
+				for (let r = 0; r < territoryCityList.length; r++) {
+				//for (let r = 0; r < 5; r++) {
+
+					tempCityContainer = {}
+					
+					tempCityContainer[name] = territoryCityList[r].innerText;
+
+					tempContainer['cities'].push(tempCityContainer)
+				}
+				container.push(tempContainer);
 			}
 
 		}
 		
 		//return boxList;
-		console.log(container.length)
+		//return territoryCityList
 		return container;
 	});
 
