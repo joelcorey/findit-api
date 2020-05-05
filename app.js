@@ -28,50 +28,39 @@ const var_dump = require('var_dump');
 		// We only need the first box for U.S. listings. 
 		// See the front CL page for each `div.colmask` if needed for other countries.
 		// Maybe set up an external 'for in loop' in the future here.
-		let boxList = colmaskList[0].querySelectorAll(`div.box`);
+		
+		let elementList = colmaskList[0].querySelectorAll(`div.box_${1} *`);		
 
-		// There are four columns of cities on the page, return that count for informative reasons.
-		container.push( { 'boxListCount': boxList.length } );
-
-		for (let i = 0; i < boxList.length; i++) {
-			
-			let territoryNameList = boxList[i].querySelectorAll(`h4`);
-			let territoryCityList = boxList[i].querySelectorAll(`ul`)
-
-			// gets the per column territory list
-			container.push( { 'territoryNameListCount': territoryNameList.length } )
-
-			for (let q = 0; q < territoryNameList.length; q++) {
-				let tempContainer = {}
-
-				
-				
-				// construct some of our template object
-				tempContainer['territoryName'] = territoryNameList[q].innerText;
-				tempContainer['territoryCityListCount'] = territoryCityList.length;
-				tempContainer['cities'] = [];
-
-				for (let r = 0; r < territoryCityList.length; r++) {
-				//for (let r = 0; r < 5; r++) {
-
-					tempCityContainer = {}
-					
-					tempCityContainer[name] = territoryCityList[r].innerText;
-
-					tempContainer['cities'].push(tempCityContainer)
-				}
-				container.push(tempContainer);
+		for (let i = 0; i < elementList.length; i++) {
+			let tempObject = {};
+			if(elementList[i].localName === 'h4') {
+				newEntry = true;
+				territoryName = elementList[i].innerHTML;
+				//container.push(elementList[i].innerHTML)
 			}
-
+			
+			if (newEntry) {
+				tempObject['territoryName'] = territoryName
+				container.push(tempObject);
+				newEntry = false;
+			}
+			//container.push(tempObject)
 		}
 		
-		//return boxList;
-		//return territoryCityList
 		return container;
 	});
 
 
-	console.log(pages);
+	//var_dump(pages);
+
+	console.log(pages)
+	// for (const page in pages[10]) {
+	// 	// for (const key in page) {
+	// 	// 	console.log(key)
+	// 	// }
+	// 	console.log(page)
+	// }
+
 	await browser.close();
 })();
 
