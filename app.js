@@ -31,19 +31,31 @@ const var_dump = require('var_dump');
 		
 		let elementList = colmaskList[0].querySelectorAll(`div.box_${1} *`);		
 
+		let newEntry = true;
+
 		for (let i = 0; i < elementList.length; i++) {
-			let tempObject = {};
-			if(elementList[i].localName === 'h4') {
+			
+			if (elementList[i].localName === 'li') {
 				newEntry = true;
-				territoryName = elementList[i].innerHTML;
+				//territoryName = elementList[i].innerHTML;
+				container.push(elementList[i].innerHTML);
 				//container.push(elementList[i].innerHTML)
+				//territoryCount++;
 			}
 			
-			if (newEntry) {
-				tempObject['territoryName'] = territoryName
-				container.push(tempObject);
-				newEntry = false;
-			}
+			// if (elementList[i].localName === 'li') {
+			// 	// let cityName = elementList[i].innerText;
+			// 	// let cityUrl = elementList[i].innerHTML;
+			// 	cityList.push( elementList[i].innerHTML );
+			// }
+
+			//if (newEntry) {
+				
+				//container.push(territoryName);
+				// container.push(cityUrl)
+				// newEntry = false;
+			//}
+
 			//container.push(tempObject)
 		}
 		
@@ -51,15 +63,16 @@ const var_dump = require('var_dump');
 	});
 
 
-	//var_dump(pages);
+	var_dump(pages);
 
-	console.log(pages)
+	//console.log(pages)
 	// for (const page in pages[10]) {
 	// 	// for (const key in page) {
 	// 	// 	console.log(key)
 	// 	// }
 	// 	console.log(page)
 	// }
+	//console.log(pages[0]['territoryName'] + ' ' + pages[0]['cityList'][1]['cityName'] + ' ' + pages[0]['cityList'][1]['cityUrl'])
 
 	await browser.close();
 })();
