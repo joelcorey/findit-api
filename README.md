@@ -17,4 +17,6 @@ In development: Port old PHP Craigslist web scraper to Node/JavaScript using Pup
 * put filters in database from flat file
 * add life cycle to filters so that older filters automatically die
 * add right click contextual menu to remove search result and add to filters from front end, to include API endpoint
+* add option for filter custom duration
 * group exact match search result titles under first result to clean up results listing, handle on backend or frontend?
+* abstract scraping instructions in to "recipe" like JSON files
