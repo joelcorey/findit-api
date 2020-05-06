@@ -14,6 +14,7 @@ In development: Port old PHP Craigslist web scraper to Node/JavaScript using Pup
 * polite and async web scraping per state
 * use proxy per state
 * track proxy performance using rating system
+* select best proxies for scraping with on as needed basis
 * put filters in database from flat file
 * add life cycle to filters so that older filters automatically die
 * add right click contextual menu to remove search result and add to filters from front end, to include API endpoint
