@@ -1,4 +1,5 @@
-module.exports.list = [
+function list() { 
+	return [
 	"Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)",
 	"Mozilla/5.0 (compatible; ABrowse 0.4; Syllable)",
 	"Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; Acoo Browser 1.98.744; .NET CLR 3.5.30729)",
@@ -2957,4 +2958,7 @@ module.exports.list = [
 	"W3C_Validator/1.432.2.10",
 	"W3C_Validator/1.305.2.12 libwww-perl/5.64",
 	"WDG_Validator/1.6.2"
-];
+	];
+}
+
+module.exports = list();

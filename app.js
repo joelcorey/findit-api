@@ -8,6 +8,10 @@ const var_dump = require('var_dump');
 // filter results through keywords
 // pay attention to date of posting - select 1 day or several going back in to the past
 
+function getUserAgent() {
+	return useragent[Math.floor(Math.random() * useragent.length)]
+}
+
 //https://www.w3schools.com/xml/xpath_syntax.asp
 //https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
 //https://blog.bitsrc.io/web-scraping-with-puppeteer-e73e5fee7474
@@ -33,14 +37,19 @@ const var_dump = require('var_dump');
 
 		let newEntry = true;
 
+		let templateObject = {};
+		let cityCount = 0;
+
 		for (let i = 0; i < elementList.length; i++) {
+
+			if (elementList[i].localName === 'h4') {
+				newEntry = true;
+				templateObject.territoryName = elementList[i].innerHTML;
+				//templateObject.cityList = [];
+			}
 			
 			if (elementList[i].localName === 'li') {
-				newEntry = true;
-				//territoryName = elementList[i].innerHTML;
-				container.push(elementList[i].innerHTML);
-				//container.push(elementList[i].innerHTML)
-				//territoryCount++;
+			 	cityCount++;
 			}
 			
 			// if (elementList[i].localName === 'li') {
@@ -49,12 +58,14 @@ const var_dump = require('var_dump');
 			// 	cityList.push( elementList[i].innerHTML );
 			// }
 
-			//if (newEntry) {
-				
-				//container.push(territoryName);
+			if (newEntry) {
+				templateObject.cityCount = cityCount;
+				container.push(templateObject);
 				// container.push(cityUrl)
-				// newEntry = false;
-			//}
+				newEntry = false;
+				templateObject = {};
+				cityCount = 0;
+			}
 
 			//container.push(tempObject)
 		}
@@ -77,8 +88,7 @@ const var_dump = require('var_dump');
 	await browser.close();
 })();
 
-//getUserAgent = useragent.list();
-// console.log(getUserAgent);
+
 
 
 
