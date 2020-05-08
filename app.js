@@ -37,11 +37,14 @@ async function buildLinks() {
 			// Maybe set up an external 'for' in the future.
 			var elementList = colmaskList[0].querySelectorAll(`div.box_${i} *`);		
 
+			// Itterate over all elements and grab only the information we want.
 			for (let i = 0; i < elementList.length; i++) {
 
+				// The 'h4' elements are the territory names.
 				if (elementList[i].localName === 'h4') {
 					var territoryName = elementList[i].innerHTML;
 				}
+				// The 'li' elements are both city name and URL.
 				if (elementList[i].localName === 'li') {
 					container.push(
 						{
@@ -51,9 +54,7 @@ async function buildLinks() {
 						}
 					);
 				}
-
-			}
-			
+			}	
 		}
 		
 		return container;
