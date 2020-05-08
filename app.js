@@ -23,7 +23,7 @@ function getUserAgent() {
 		//waitForSelector: 'h4'
 	});
 
-	const pages = await page.evaluate(() => {
+	const cityLinks = await page.evaluate(() => {
 		let container = [];
 
 		let colmaskList = document.querySelectorAll(`div.colmask`);
@@ -35,56 +35,34 @@ function getUserAgent() {
 		
 		let elementList = colmaskList[0].querySelectorAll(`div.box_${1} *`);		
 
-		let newEntry = true;
+		let newEntry = false;
 
-		let templateObject = {};
 		let cityCount = 0;
 
 		for (let i = 0; i < elementList.length; i++) {
 
 			if (elementList[i].localName === 'h4') {
-				newEntry = true;
-				templateObject.territoryName = elementList[i].innerHTML;
-				//templateObject.cityList = [];
+				var territoryName = elementList[i].innerHTML;
 			}
-			
+
 			if (elementList[i].localName === 'li') {
-			 	cityCount++;
+				container.push(
+					{
+					territoryName,
+					cityName: elementList[i].innerText, 
+					cityUrl: elementList[i].innerHTML
+					}
+				);
 			}
-			
-			// if (elementList[i].localName === 'li') {
-			// 	// let cityName = elementList[i].innerText;
-			// 	// let cityUrl = elementList[i].innerHTML;
-			// 	cityList.push( elementList[i].innerHTML );
-			// }
-
-			if (newEntry) {
-				templateObject.cityCount = cityCount;
-				container.push(templateObject);
-				// container.push(cityUrl)
-				newEntry = false;
-				templateObject = {};
-				cityCount = 0;
-			}
-
-			//container.push(tempObject)
 		}
 		
 		return container;
 	});
 
-
-	var_dump(pages);
-
-	//console.log(pages)
-	// for (const page in pages[10]) {
-	// 	// for (const key in page) {
-	// 	// 	console.log(key)
-	// 	// }
-	// 	console.log(page)
-	// }
-	//console.log(pages[0]['territoryName'] + ' ' + pages[0]['cityList'][1]['cityName'] + ' ' + pages[0]['cityList'][1]['cityUrl'])
-
+	for (const key in cityLinks) {
+		console.log(cityLinks[key])
+	}
+	
 	await browser.close();
 })();
 
