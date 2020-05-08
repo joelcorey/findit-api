@@ -15,7 +15,7 @@ function getUserAgent() {
 }
 
 // Primary scraping function
-(async () => {
+async function buildLinks() {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	await page.goto('https://www.craigslist.org/about/sites', { 
@@ -24,41 +24,51 @@ function getUserAgent() {
 	});
 
 	const cityLinks = await page.evaluate(() => {
-		let container = [];
 
+		let container = [];
 		let colmaskList = document.querySelectorAll(`div.colmask`);
 
-		// colmaskList[0] = U.S. cities
-		// Currently not necessary to loop over worldwide listings.
-		// See the front CL page for each `div.colmask` if needed for other countries.
-		// Maybe set up an external 'for' in the future.
-		let elementList = colmaskList[0].querySelectorAll(`div.box_${1} *`);		
+		// There are four columns defined by CSS class, itterate over them
+		for (let i = 1; i <= 4; i++) {
 
-		for (let i = 0; i < elementList.length; i++) {
+			// colmaskList[0] = U.S., colmaskList[0] = Canada, etc
+			// Currently not necessary to loop over worldwide listings.
+			// See the front CL page for each `div.colmask` if needed for other countries.
+			// Maybe set up an external 'for' in the future.
+			var elementList = colmaskList[0].querySelectorAll(`div.box_${i} *`);		
 
-			if (elementList[i].localName === 'h4') {
-				var territoryName = elementList[i].innerHTML;
+			for (let i = 0; i < elementList.length; i++) {
+
+				if (elementList[i].localName === 'h4') {
+					var territoryName = elementList[i].innerHTML;
+				}
+				if (elementList[i].localName === 'li') {
+					container.push(
+						{
+						territoryName,
+						cityName: elementList[i].innerText, 
+						cityUrl: elementList[i].innerHTML
+						}
+					);
+				}
+
 			}
-
-			if (elementList[i].localName === 'li') {
-				container.push(
-					{
-					territoryName,
-					cityName: elementList[i].innerText, 
-					cityUrl: elementList[i].innerHTML
-					}
-				);
-			}
+			
 		}
 		
 		return container;
 	});
 
-	for (const key in cityLinks) {
-		console.log(cityLinks[key])
-	}
-	
 	await browser.close();
+	return cityLinks;
+};
+
+(async () => {
+	const links = await buildLinks() 
+
+	for (const el in links) {
+		console.log(links[el]);
+	}
 })();
 
 // console.log(filter);
