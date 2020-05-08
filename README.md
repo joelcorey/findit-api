@@ -4,8 +4,8 @@
 In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.
 
 ### Todo
-* get all cities dependant on territory (U.S. states only for now)
-* Use above to link build for each city in each state.
+* ~~ get all cities dependant on territory (U.S. states only for now) ~~
+* ~~ Use above to link build for each city in each state. ~~
 * scrape each city per job category
 * break down each job category
 * filter results through keywords
