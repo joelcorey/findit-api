@@ -68,4 +68,4 @@ function filter() {
     ];
 }
 
-module.exports = filter;
+module.exports = filter();
