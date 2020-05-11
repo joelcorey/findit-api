@@ -4,7 +4,9 @@
 In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.
 
 ## Installation
+Install dependencies:  
 ```npm i```  
+  
 Place a .env file in the root directory with the following information in it:
 ```DB_USER='<username>'```  
 ```DB_PASSWORD='<password>'```  
