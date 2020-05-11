@@ -6,9 +6,28 @@ In development: Port old PHP Craigslist web scraper to Node/JavaScript using Pup
 ## Installation
 ```npm i```  
 Place a .env file in the root directory with the following information in it:
-```DB_HOST='<ip address here>'```  
-```DB_USERNAME='<username>'```  
+```DB_USER='<username>'```  
 ```DB_PASSWORD='<password>'```  
+```DB_NAME='<database name>'```  
+```DB_HOST='<ip address here>'``` 
+```DB_PORT=54321```  
+```DB_DIALECT=postgress```  
+  
+In order to start migrations we first have to install Sequelize:  
+```npm install --save sequelize```  
+Along with our database "driver" of choice (Postgres in this case):  
+```npm install --save pg pg-hstore```  
+Migrations are handled with the Sequelize CLI:  
+https://sequelize.org/master/manual/migrations.html  
+Run this for first time dev:  
+```npx sequelize-cli init```  
+Rename:  
+```config/config.json```  
+to:  
+```config/config.js```  
+And structure that file as the config.example.js.  
+And run migrations:  
+npx sequelize-cli db:migrate  
   
 ### Todo
 * ~~get all cities dependant on territory (U.S. states only for now)~~
