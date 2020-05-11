@@ -3,6 +3,13 @@
 ## Why?
 In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.
 
+## Installation
+```npm i```
+Place a .env file in the root directory with the following information in it:
+```DB_HOST='<ip address here>'```  
+```DB_USERNAME='<username>'```  
+```DB_PASSWORD='<password>'```  
+  
 ### Todo
 * ~~get all cities dependant on territory (U.S. states only for now)~~
 * ~~Use above to link build for each city in each state.~~
