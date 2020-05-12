@@ -13,7 +13,6 @@ Place a .env file in the root directory with the following information in it:
 ```DB_NAME='<database name>'```  
 ```DB_HOST='<ip address here>'``` 
 ```DB_PORT=54321```  
-```DB_DIALECT=postgress```  
   
 In order to start migrations we first have to install Sequelize:  
 ```npm install --save sequelize```  
@@ -49,3 +48,11 @@ npx sequelize-cli db:migrate
 * add option for filter custom duration
 * group exact match search result titles under first result to clean up results listing, handle on backend or frontend?
 * abstract scraping instructions in to "recipe" like JSON files
+
+### Useful links
+https://stackoverflow.com/questions/45790759/sequalize-migration-with-dotenv
+https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/
+
+## Temp Links
+https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/
+https://stackabuse.com/deploying-a-node-js-app-to-heroku/

@@ -1,5 +1,17 @@
 const puppeteer = require('puppeteer');
 const var_dump = require('var_dump');
+// const db = require('./models/index.js');
+
+// const express = require('express');
+// const app = express();
+// const path = require('path');
+// const port = 3000;
+
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/index.html'));
+// });
+
+// app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
 
 const config = require('./util/config-common.js');
 const filter = require('./util/filter.js');
