@@ -12,7 +12,7 @@ Place a .env file in the root directory with the following information in it:
 ```DB_PASSWORD='<password>'```  
 ```DB_NAME='<database name>'```  
 ```DB_HOST='<ip address here>'```  
-```DB_PORT=54321```  
+```DB_PORT=5432```  
   
 In order to start migrations we first have to install Sequelize:  
 ```npm install --save sequelize```  

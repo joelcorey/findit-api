@@ -18,7 +18,7 @@ const buildLinks = async () => {
 		let container = [];
 		let colmaskList = document.querySelectorAll(`div.colmask`);
 
-		// There are four columns defined by CSS class, itterate over them
+		// There are four columns defined by CSS classes, itterate over them
 		for (let i = 1; i <= 4; i++) {
 
 			// colmaskList[0] = U.S., colmaskList[0] = Canada, etc
