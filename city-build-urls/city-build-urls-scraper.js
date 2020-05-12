@@ -5,11 +5,7 @@ const configCommon = require('../util/config-common.js');
 const filter = require('../util/filter.js');
 const useragent = require('../util/useragent.js');
 
-function getUserAgent() {
-	return useragent[Math.floor(Math.random() * useragent.length)]
-}
-
-async function buildLinks() {
+const buildLinks = async () => {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	await page.goto('https://www.craigslist.org/about/sites', { 
@@ -40,11 +36,16 @@ async function buildLinks() {
 				}
 				// The 'li' elements are both city name and URL.
 				if (elementList[i].localName === 'li') {
+                    var cityName = elementList[i].innerText;
+                    var cityUrl = elementList[i].innerHTML;
+                    var countryName = 'United States'; // temp hard coded
+
 					container.push(
 						{
-						territoryName,
-						cityName: elementList[i].innerText, 
-						cityUrl: elementList[i].innerHTML
+                            territoryName,
+                            cityName, 
+                            cityUrl,
+                            countryName
 						}
 					);
 				}
@@ -59,15 +60,10 @@ async function buildLinks() {
 };
 
 // (async () => {
-// 	const links = await buildLinks() 
-
-// 	for (const el in links) {
-// 		console.log(links[el]);
-// 	}
+//     const links = await buildLinks() 
+//     for (let i = 0; i < links.length; i++) {
+//         console.log(links[i]);
+//     }
 // })();
-
-// console.log(filter);
-// console.log(config.categories);
-// console.log(config.keywords);
 
 module.exports = buildLinks;
