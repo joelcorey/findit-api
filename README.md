@@ -7,11 +7,11 @@ In development: Port old PHP Craigslist web scraper to Node/JavaScript using Pup
 Install dependencies:  
 ```npm i```  
   
-Place a .env file in the root directory with the following information in it:
+Place a .env file in the root directory with the following information in it:  
 ```DB_USER='<username>'```  
 ```DB_PASSWORD='<password>'```  
 ```DB_NAME='<database name>'```  
-```DB_HOST='<ip address here>'``` 
+```DB_HOST='<ip address here>'```  
 ```DB_PORT=54321```  
   
 In order to start migrations we first have to install Sequelize:  
