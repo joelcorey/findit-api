@@ -14,10 +14,6 @@ Place a .env file in the root directory with the following information in it:
 ```DB_HOST='<ip address here>'```  
 ```DB_PORT=5432```  
   
-In order to start migrations we first have to install Sequelize:  
-```npm install --save sequelize```  
-Along with our database "driver" of choice (Postgres in this case):  
-```npm install --save pg pg-hstore```  
 Migrations are handled with the Sequelize CLI:  
 https://sequelize.org/master/manual/migrations.html  
 Run this for first time dev:  
