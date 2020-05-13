@@ -8,6 +8,9 @@ Install dependencies:
 ```npm i```  
   
 Place a .env file in the root directory with the following information in it:  
+```NODE_ENV=development```  
+```PORT=8000```  
+```API_TOKEN=`<not yet used>```  
 ```DB_USER='<username>'```  
 ```DB_PASSWORD='<password>'```  
 ```DB_NAME='<database name>'```  
