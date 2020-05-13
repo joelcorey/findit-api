@@ -32,6 +32,7 @@ And run migrations:
 ### Todo
 * ~~get all cities dependant on territory (U.S. states only for now)~~
 * ~~Use above to link build for each city in each state.~~
+* Make a kanban Trello or similar board
 * Implement Restful API for a frontend
 * scrape each city per job category
 * break down each job category
