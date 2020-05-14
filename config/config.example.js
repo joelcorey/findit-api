@@ -1,3 +1,8 @@
+/*
+This config file is for The relational ORM Sequelize. For a more generic config for the
+application see config in 'util/config-common.js'.
+*/
+
 require('dotenv').config();
 
 module.exports = {
