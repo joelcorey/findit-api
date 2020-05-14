@@ -6,8 +6,10 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
+const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 
-app.use('/buildlinks', buildLinksRouter)
+app.use('/buildlinks', buildLinksRouter);
+app.use('/cities', scrapeLinksRouter);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
 
