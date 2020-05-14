@@ -1,21 +1,26 @@
 const db = require('../models/index.js');
 
-const cityBuildUrlsService = {
+const cityBuildUrlsService = (data) => {
 
-    createCityUrl(city) {
+    const createCityUrl = (city) => {
         db.city_urls.findOrCreate({ where: { 
             city_name: city.cityName,
             territory_name: city.territoryName,
             city_url: city.cityUrl,
-            city_country:city. cityCountry
+            city_country: city.countryName
          } })
-    },
+    }
 
-    createCityUrls(cities) {
+    const createCityUrls = (cities) => {
         for (let i = 0; i < cities.length; i++) {
-            this.createCityUrl(cities[i]);
+            createCityUrl(cities[i]);
         }
     }
+
+    createCityUrls(data);
+
 }
 
-module.exports = cityBuildUrlsService;
+module.exports = {
+    cityBuildUrlsService,
+};

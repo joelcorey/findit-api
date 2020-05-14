@@ -14,7 +14,7 @@ cityBuildUrlsRouter
 		try {
 
 			const links = await cityBuildUrlsScraper();
-			//cityBuildUrlsService(links);
+			await cityBuildUrlsService(links);
 			res.send(links);
 
 		} catch (error) {
