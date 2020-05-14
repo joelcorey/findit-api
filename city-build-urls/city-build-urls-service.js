@@ -14,14 +14,11 @@ const cityBuildUrlsService = {
             city_url: city.cityUrl,
             city_country: city.countryName
         } })
-        return;
+        //return;
     },
 
     createCityUrls(cities) {
-        for (let i = 0; i < cities.length; i++) {
-            cityBuildUrlsService.createCityUrl(cities[i]);
-        }
-        return;
+        db.city_urls.bulkCreate(cities)
     }
 
     // Find all cities in a state

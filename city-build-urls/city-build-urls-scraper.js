@@ -5,12 +5,15 @@ const configCommon = require('../util/config-common.js');
 const filter = require('../util/filter.js');
 const useragent = require('../util/useragent.js');
 
+// const urlHelper = (url) => {
+// 	return url.slice(0, url.indexOf(">"));
+// }
+
 const buildLinks = async () => {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	await page.goto('https://www.craigslist.org/about/sites', { 
 		waitUntil: 'networkidle2',
-		//waitForSelector: 'h4'
 	});
 
 	const cityLinks = await page.evaluate(() => {
@@ -37,16 +40,16 @@ const buildLinks = async () => {
 				// The 'li' elements are both city name and URL.
 				if (elementList[i].localName === 'li') {
                     var cityName = elementList[i].innerText;
-                    var cityUrl = elementList[i].innerHTML;
+                    var cityUrl = elementList[i].innerHTML.slice(elementList[i].innerHTML.indexOf("https"), elementList[i].innerHTML.indexOf(".org/")) + '.org';
                     var countryName = 'United States'; // temp hard coded
 
 					container.push(
-						{
+						[
                             territoryName,
                             cityName, 
                             cityUrl,
                             countryName
-						}
+						]
 					);
 				}
 			}	
@@ -58,12 +61,5 @@ const buildLinks = async () => {
 	await browser.close();
 	return cityLinks;
 };
-
-// (async () => {
-//     const links = await buildLinks() 
-//     for (let i = 0; i < links.length; i++) {
-//         console.log(links[i]);
-//     }
-// })();
 
 module.exports = buildLinks;

@@ -1,10 +1,16 @@
-function categories() {
+function categoriesPreferred() {
     return [
-        // preferred:
         "sof",  // software <-- desirable
         "web",  // web / info design <-- desirable
         "cpg",  // gigs - computer <-- desirable
-        // other:
+    ];
+}
+
+function categoriesAll() {
+    return [
+        "sof",  // software <-- desirable
+        "web",  // web / info design <-- desirable
+        "cpg",  // gigs - computer <-- desirable
         "acc",  // accounting
         "bus",  // business / management
         "etc",  // et cetera
@@ -64,7 +70,8 @@ function keywords() {
 }
 
 module.exports = {
-    categories: categories(),
+    categories: categoriesPreferred(),
+    categoriesAll: categoriesAll(),
     keywords: keywords()
 }
 
