@@ -14,12 +14,12 @@ const cityBuildUrlsService = {
             city_url: city.cityUrl,
             city_country: city.countryName
         } })
-        //return;
     },
 
     createCityUrls(cities) {
-        // fix: map cities to object in bulkCreate parameter
-        db.city_urls.bulkCreate(cities)
+        db.city_urls.bulkCreate(
+            cities
+        )
     }
 
     // Find all cities in a state

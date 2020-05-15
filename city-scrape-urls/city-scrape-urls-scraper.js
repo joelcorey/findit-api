@@ -42,10 +42,10 @@ const buildLinks = async () => {
 
 					container.push(
 						{
-                            territoryName,
-                            cityName, 
-                            cityUrl,
-                            countryName
+                            territory_name: territoryName,
+                            city_name: cityName, 
+                            city_url: cityUrl,
+                            country_name: countryName
 						}
 					);
 				}

@@ -45,10 +45,11 @@ const buildLinks = async () => {
 
 					container.push(
 						{
-                            territoryName,
-                            cityName, 
-                            cityUrl,
-                            countryName
+							// object key names in SQL naming conventions for convenience
+                            territory_name: territoryName,
+                            city_name: cityName, 
+                            city_url: cityUrl,
+                            country_name: countryName
 						}
 					);
 				}
