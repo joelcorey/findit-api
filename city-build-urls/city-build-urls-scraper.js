@@ -44,12 +44,12 @@ const buildLinks = async () => {
                     var countryName = 'United States'; // temp hard coded
 
 					container.push(
-						[
+						{
                             territoryName,
                             cityName, 
                             cityUrl,
                             countryName
-						]
+						}
 					);
 				}
 			}	

@@ -18,6 +18,7 @@ const cityBuildUrlsService = {
     },
 
     createCityUrls(cities) {
+        // fix: map cities to object in bulkCreate parameter
         db.city_urls.bulkCreate(cities)
     }
 
