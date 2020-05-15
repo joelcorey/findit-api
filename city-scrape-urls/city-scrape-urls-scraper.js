@@ -56,7 +56,7 @@ const buildData = async (url) => {
 };
 
 const getData = async (cities) => {
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < cities.length; i++) {
 	//for (let i = 0; i < cities.length; i++) {
 		for (let q = 0; q < configCommon.categories.length; q++) {
 			let url = cities[i].city_url + configCommon.categories[q];

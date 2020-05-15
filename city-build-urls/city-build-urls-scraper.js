@@ -40,7 +40,11 @@ const buildLinks = async () => {
 				// The 'li' elements are both city name and URL.
 				if (elementList[i].localName === 'li') {
                     var cityName = elementList[i].innerText;
-                    var cityUrl = elementList[i].innerHTML.slice(elementList[i].innerHTML.indexOf("https"), elementList[i].innerHTML.indexOf(".org/")) + '.org';
+					// Original:
+                    //var cityUrl = elementList[i].innerHTML;
+					// Fixed:
+					// Some CL cities are prefixed with only 'http', most are 'https'. Handle that problem here.
+					var cityUrl = 'https://' + elementList[i].innerHTML.slice(elementList[i].innerHTML.indexOf("/") + 2, elementList[i].innerHTML.indexOf(".org/")) + '.org';
                     var countryName = 'United States'; // temp hard coded
 
 					container.push(
@@ -49,7 +53,7 @@ const buildLinks = async () => {
                             territory_name: territoryName,
                             city_name: cityName, 
                             city_url: cityUrl,
-                            country_name: countryName
+                            city_country: countryName
 						}
 					);
 				}
