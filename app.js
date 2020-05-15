@@ -1,13 +1,22 @@
 require('dotenv').config();
 
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+
 const app = express();
-const path = require('path');
 const port = process.env.PORT || 3000;
 
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
 const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 
+// https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/
+// app.use(helmet());
+// app.use(bodyParser.json());
+// app.use(cors); // cors causing arror
+app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);
 app.use('/cities', scrapeLinksRouter);
 
