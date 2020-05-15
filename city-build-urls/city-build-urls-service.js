@@ -3,8 +3,12 @@ const db = require('../models/index.js');
 const cityBuildUrlsService = {
 
     // doesn't work
-    doForceMigration() {
-        db.city_urls.sync({ force: true })
+    deleteCityUrls() {
+        db.city_urls.destroy({ 
+            truncate: true,
+            cascade: false,
+            restartIdentity: true 
+        })
     },
     
     createCityUrl(city) {
