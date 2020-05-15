@@ -30,12 +30,12 @@ And run migrations:
 ```npx sequelize-cli db:migrate```  
   
 ### Todo
-https://trello.com/b/nYBzDmmj/findit-api
-
+https://trello.com/b/nYBzDmmj/findit-api  
+  
 ### Useful links
-https://stackoverflow.com/questions/45790759/sequalize-migration-with-dotenv
-https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/
-
-## Temp Links
-https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/
-https://stackabuse.com/deploying-a-node-js-app-to-heroku/
+https://stackoverflow.com/questions/45790759/sequalize-migration-with-dotenv  
+https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/  
+https://stackabuse.com/deploying-a-node-js-app-to-heroku/  
+https://www.w3schools.com/xml/xpath_syntax.asp  
+https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate  
+https://blog.bitsrc.io/web-scraping-with-puppeteer-e73e5fee7474  

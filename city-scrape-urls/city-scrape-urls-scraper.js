@@ -12,7 +12,9 @@ const buildData = async (url) => {
 		waitUntil: 'networkidle2',
 		//waitForSelector: 'time'
 	});
+
 	console.log(`Awaiting ${url}`);
+
 	const result = await page.evaluate(() => {
 		
 		let container = [];
@@ -56,8 +58,8 @@ const buildData = async (url) => {
 };
 
 const getData = async (cities) => {
+	console.log(cities);
 	for (let i = 0; i < cities.length; i++) {
-	//for (let i = 0; i < cities.length; i++) {
 		for (let q = 0; q < configCommon.categories.length; q++) {
 			let url = cities[i].city_url + configCommon.categories[q];
 			// console.log(url);

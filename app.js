@@ -16,7 +16,7 @@ const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 // app.use(helmet());
 // app.use(bodyParser.json());
 // app.use(cors); // cors causing arror
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);
 app.use('/cities', scrapeLinksRouter);
 
@@ -32,8 +32,3 @@ app.use(function errorHandler(error, req, res, next) {
 	}
 	res.status(500).json(response);
   });
-
-// Temp useful links copy pasta here:
-//https://www.w3schools.com/xml/xpath_syntax.asp
-//https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
-//https://blog.bitsrc.io/web-scraping-with-puppeteer-e73e5fee7474
