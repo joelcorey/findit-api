@@ -12,7 +12,7 @@ cityScrapeUrlsRouter
 	
 		try {
             const links = await cityScrapeUrlsService.getAllCities();
-            //console.log(links)
+            cityScrapeUrlsScraper(links)
 			//const links = await cityBuildUrlsScraper();
 			//await cityBuildUrlsService.doForceMigrations;
 			//await cityBuildUrlsService.createCityUrls(links);

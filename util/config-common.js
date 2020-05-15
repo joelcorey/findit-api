@@ -1,16 +1,16 @@
-function categoriesPreferred() {
+function categories() {
     return [
-        "sof",  // software <-- desirable
-        "web",  // web / info design <-- desirable
-        "cpg",  // gigs - computer <-- desirable
+        "/d/software-qa-dba-etc/search/sof",  // software
+        "/d/web-html-info-design/search/web",  // web / info design
+        "/d/computer-gigs/search/cpg",  // gigs - computer 
     ];
 }
 
 function categoriesAll() {
     return [
-        "sof",  // software <-- desirable
-        "web",  // web / info design <-- desirable
-        "cpg",  // gigs - computer <-- desirable
+        "sof",  // software
+        "web",  // web / info design
+        "cpg",  // gigs - computer
         "acc",  // accounting
         "bus",  // business / management
         "etc",  // et cetera
@@ -70,7 +70,7 @@ function keywords() {
 }
 
 module.exports = {
-    categories: categoriesPreferred(),
+    categories: categories(),
     categoriesAll: categoriesAll(),
     keywords: keywords()
 }
