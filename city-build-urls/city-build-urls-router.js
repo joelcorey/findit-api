@@ -9,27 +9,15 @@ const cityBuildUrlsRouter = express.Router();
 cityBuildUrlsRouter
 	.route('/')
 	.get(async (req, res, next) => {
-		console.log('building links')
-
 		try {
-
 			const links = await cityBuildUrlsScraper();
 			await cityBuildUrlsService.deleteCityUrls();
 			await cityBuildUrlsService.createCityUrls(links);
-			res.send(links);
 
+			res.sendStatus(200);
 		} catch (error) {
 			return next(error);
 		}
-	
 	})
-
-// const asyncRoute = route => (req, res, next = console.error) =>
-// 	Promise.resolve(route(req, res)).catch(next)
-
-// async function getLinks() {
-// 	const links = await cityBuildUrlsScraper.buildLinks;
-// 	return links;
-// } 
 
 module.exports = cityBuildUrlsRouter;
