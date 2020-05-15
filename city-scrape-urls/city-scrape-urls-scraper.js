@@ -21,8 +21,11 @@ const buildData = async (url) => {
 		for (let i = 0; i < resultInfo.length; i++) {
 
 			let timeInfo = resultInfo[i].querySelector(`time.result-date`);
-			let dateTime = timeInfo.dateTime;
 			let dateTitle = timeInfo.innerHTML;
+			let dateTime = timeInfo.dateTime;
+
+			let dateTimeArray = dateTime.split(" ");
+			let dateTimeSeperateArray = dateTimeArray[0].split("-");
 
 			let resultTitle = resultInfo[i].querySelector(`a.result-title`);
 			let resultTitleText = resultTitle.innerText;
@@ -32,15 +35,19 @@ const buildData = async (url) => {
 				{
 					resultTitleText,
 					resultTitleHref,
-					dateTitle,
-					dateTime,
+					date: {
+						dateTitle,
+						dateString: dateTimeArray[0],
+						timeString: dateTimeArray[1],
+						year: dateTimeSeperateArray[0],
+						month: dateTimeSeperateArray[1],
+						day: dateTimeSeperateArray[2]
+					}
 				}
 			);
 		}
-		
-		
+				
 		return container;
-
 	});
 
 	await browser.close();
