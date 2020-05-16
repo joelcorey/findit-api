@@ -31,4 +31,4 @@ app.use(function errorHandler(error, req, res, next) {
 	  response = { error: error.message, object: error }
 	}
 	res.status(500).json(response);
-  });
+});

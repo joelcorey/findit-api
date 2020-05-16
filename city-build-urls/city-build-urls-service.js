@@ -2,7 +2,6 @@ const db = require('../models/index.js');
 
 const cityBuildUrlsService = {
 
-    // doesn't work
     deleteCityUrls() {
         db.city_urls.destroy({ 
             truncate: true,
@@ -33,9 +32,6 @@ const cityBuildUrlsService = {
     // Find specific city, might return multiple if same name of city across multiple states
 
     // Find specific city in specific state
-
-
-    //createCityUrls(data);
 
 }
 
