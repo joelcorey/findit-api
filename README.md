@@ -16,7 +16,9 @@ Place a .env file in the root directory with the following information in it:
 ```DB_NAME='<database name>'```  
 ```DB_HOST='<ip address here>'```  
 ```DB_PORT=5432```  
-  
+
+This project assumes a PostgreSQL database.  
+   
 Migrations are handled with the Sequelize CLI:  
 https://sequelize.org/master/manual/migrations.html  
 Run this for first time dev:  
