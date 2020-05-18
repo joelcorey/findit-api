@@ -3,6 +3,8 @@ const express = require('express');
 const cityBuildUrlsScraper = require('./city-build-urls-scraper');
 const cityBuildUrlsService = require('./city-build-urls-service');
 
+const cityCountsService = require('../city-counts/city-counts-service');
+
 const cityBuildUrlsRouter = express.Router();
 
 // Only one route used to build/scrape urls for later scraping
@@ -13,6 +15,8 @@ cityBuildUrlsRouter
 			const links = await cityBuildUrlsScraper();
 			await cityBuildUrlsService.deleteCityUrls();
 			await cityBuildUrlsService.createCityUrls(links);
+			
+			const counts = await cityBuildUrlsService.getCityUrlsCounts;
 
 			res.sendStatus(200);
 		} catch (error) {
