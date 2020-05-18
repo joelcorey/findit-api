@@ -6,18 +6,23 @@ const cityScrapeUrlsService = require('./city-scrape-urls-service');
 const cityScrapeUrlsRouter = express.Router();
 
 cityScrapeUrlsRouter
-	.route('/')
-	.get(async (req, res, next) => {
+	// .route('/')
+	// .get(async (req, res, next) => {
 	
-		try {
-            const cities = await cityScrapeUrlsService.getAllCities();
-            const data = await cityScrapeUrlsScraper(cities);
-			res.send(data);
+	// 	try {
+    //         const cities = await cityScrapeUrlsService.getAllCities();
+    //         const data = await cityScrapeUrlsScraper(cities);
+	// 		res.send(data);
 
-		} catch (error) {
-			return next(error);
-		}
-
+	// 	} catch (error) {
+	// 		return next(error);
+	// 	}
+	.route('/')
+	.post(async (req, res) => {
+		var data = req.body;
+		console.log(data)
+		res.send(`${data.state} added!`)
+	}) 
 	// Find all cities in a state
 
     // Find all cities in a region (Pacific Northwest, West Coast, Midwest, etc)
@@ -27,6 +32,6 @@ cityScrapeUrlsRouter
     // Find specific city in specific state
 
 	
-	})
+	//})
 
 module.exports = cityScrapeUrlsRouter;

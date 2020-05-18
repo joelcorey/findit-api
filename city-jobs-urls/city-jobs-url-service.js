@@ -14,7 +14,7 @@ const cityBuildJobsService = {
         db.job_urls.bulkCreate(
             jobs
         )
-    }
+    },
 
 }
 

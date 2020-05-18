@@ -14,7 +14,7 @@ const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 
 // https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/
 // app.use(helmet());
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 // app.use(cors); // cors causing arror
 // app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);

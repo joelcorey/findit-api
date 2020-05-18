@@ -17,12 +17,12 @@ Place a .env file in the root directory with the following information in it:
 ```DB_HOST='<ip address here>'```  
 ```DB_PORT=5432```  
 
-This project assumes a PostgreSQL database.  
+This project assumes a PostgreSQL database is installed and configred.  
    
 Migrations are handled with the Sequelize CLI:  
 https://sequelize.org/master/manual/migrations.html  
 Run this for first time dev:  
-```npx sequelize-cli init```  
+```npx sequelize-cli db:migrate```  
 Rename:  
 ```config/config.json```  
 to:  
