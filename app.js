@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // app.use(cors); // cors causing arror
 // app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);
-app.use('/cities', scrapeLinksRouter);
+app.use('/city', scrapeLinksRouter);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
 
