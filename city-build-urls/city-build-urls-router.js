@@ -17,6 +17,7 @@ cityBuildUrlsRouter
 			await cityBuildUrlsService.createCityUrls(links);
 			
 			const counts = await cityBuildUrlsService.getCityUrlsCounts;
+			cityCountsService.createCounts(counts);
 
 			res.sendStatus(200);
 		} catch (error) {

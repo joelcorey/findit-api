@@ -2,7 +2,7 @@ const db = require('../models/index.js');
 
 const cityCountsService = {
 
-    deleteJobUrls() {
+    deleteCounts() {
         db.city_counts.destroy({ 
             truncate: true,
             cascade: false,
@@ -10,7 +10,7 @@ const cityCountsService = {
         })
     },
 
-    createJobUrls(counts) {
+    createCounts(counts) {
         db.city_counts.bulkCreate(
             counts
         )
