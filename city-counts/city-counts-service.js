@@ -11,6 +11,7 @@ const cityCountsService = {
     },
 
     createCounts(counts) {
+        console.log(counts)
         db.city_counts.bulkCreate(
             counts
         )

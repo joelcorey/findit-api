@@ -18,8 +18,10 @@ cityBuildUrlsRouter
 			await cityBuildUrlsService.createCityUrls(links);
 			
 			const counts = await cityBuildUrlsService.getCityUrlsCounts();
-			vardump(counts);
-			await cityCountsService.createCounts(counts);
+			await cityCountsService.deleteCounts();
+			// Because we used raw SQL to get this data, the returned data is a multi-element array
+			// We have to specify the first index of this data array to avoid an error here:
+			await cityCountsService.createCounts(counts[0]);
 
 			res.sendStatus(200);
 		} catch (error) {

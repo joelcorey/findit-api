@@ -57,6 +57,7 @@ const cityBuildUrlsService = {
         // );
         // Back to regular old SQL statements >:( ...
         return db.sequelize.query('SELECT territory_name, city_country, COUNT(*) AS total FROM city_urls GROUP BY territory_name, city_country ORDER BY territory_name;');
+        
     }
 
     // DONE: Find all cities in a state
