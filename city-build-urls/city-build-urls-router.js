@@ -1,4 +1,5 @@
 const express = require('express');
+const vardump = require('var_dump');
 
 const cityBuildUrlsScraper = require('./city-build-urls-scraper');
 const cityBuildUrlsService = require('./city-build-urls-service');
@@ -16,8 +17,9 @@ cityBuildUrlsRouter
 			await cityBuildUrlsService.deleteCityUrls();
 			await cityBuildUrlsService.createCityUrls(links);
 			
-			const counts = await cityBuildUrlsService.getCityUrlsCounts;
-			cityCountsService.createCounts(counts);
+			const counts = await cityBuildUrlsService.getCityUrlsCounts();
+			vardump(counts);
+			await cityCountsService.createCounts(counts);
 
 			res.sendStatus(200);
 		} catch (error) {

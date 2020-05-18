@@ -32,28 +32,31 @@ const cityBuildUrlsService = {
         GROUP BY territory_name, city_country 
         ORDER BY territory_name;
 
-    Working SQL translated in to Sequelize ORM talk:
+    Working SQL translated in to Sequelize ORM talk that does not work:
     */
     getCityUrlsCounts() {
-        db.city_urls.findAll(
-            {
-                attributes: 
-                [
-                    'territory_name', 
-                    'city_country',
-                    [sequelize.fn('COUNT', sequelize.col('*'))]
-                ],
-                group:
-                [
-                    'territory_name',
-                    'city_country'
-                ],
-                order:
-                [
-                    'territory_name'
-                ]
-            }
-        )
+        // Non working Sequelize ORM method:
+        // return db.city_urls.findAll(
+        //     {
+        //         attributes: 
+        //         [
+        //             'territory_name', 
+        //             'city_country',
+        //             [db.sequelize.fn('COUNT', db.sequelize.col('*')), 'total']
+        //         ],
+        //         group:
+        //         [
+        //             'territory_name',
+        //             'city_country'
+        //         ],
+        //         order:
+        //         [
+        //             'territory_name'
+        //         ]
+        //     }
+        // );
+        // Back to regular old SQL statements >:( ...
+        return db.sequelize.query('SELECT territory_name, city_country, COUNT(*) AS total FROM city_urls GROUP BY territory_name, city_country ORDER BY territory_name;');
     }
 
     // DONE: Find all cities in a state
