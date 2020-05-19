@@ -10,13 +10,20 @@ Install dependencies:
 Place a .env file in the root directory with the following information in it:  
 ```NODE_ENV=development```  
 ```PORT=8000```  
-```API_TOKEN=`<not yet used>```  
+```API_TOKEN='<not-yet-used>```  
+```JWKS_URI=https://test-api.auth0.com/api/v2/.well-known/jwks.json```  
+```API_IDENTIFIER=https://test-api```  
+```AUTH_DOMAIN=https://test-api.auth0.com/api/v2/```  
+```ALGORITHMS=['RS256']```  
 ```DB_USER='<username>'```  
 ```DB_PASSWORD='<password>'```  
-```DB_NAME='<database name>'```  
-```DB_HOST='<ip address here>'```  
+```DB_NAME='<database-name>'```  
+```DB_HOST='<ip-address-here>'```  
 ```DB_PORT=5432```  
-
+  
+For further information on JWKS_URI, API_IDENTIFIER, AUTH_DOMAIN, ALGORITHMS see here:  
+https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/  
+  
 This project assumes a PostgreSQL database is installed and configred.  
    
 Migrations are handled with the Sequelize CLI:  
