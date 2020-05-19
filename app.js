@@ -1,8 +1,6 @@
 require('dotenv').config();
 
 const express = require('express');
-const jwt =  require('express-jwt');
-const jwksRsa = require('jwks-rsa');
 const bodyParser = require('body-parser');
 //const cors = require('cors');
 const helmet = require('helmet');
@@ -11,9 +9,13 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const checkJwtMiddleware = require('./middleware/middleware-check-jwt')
+
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
 const getCountsRouter = require('./city-counts/city-counts-router');
 const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
+
+app.use(checkJwtMiddleware);
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -24,18 +26,6 @@ app.use(morgan('combined'));
 app.use((req, res, next) => {
 	res.set('API-Version', '1');
 	return next();
-});
-
-const checkJwt = jwt({
-	secret: jwksRsa.expressJwtSecret({
-		cache: true,
-		rateLimit: true,
-		jwksRequestsPerMinute: 5,
-		jwksUri: process.env.JWKS_URI
-	}),
-	audience: process.env.API_IDENTIFIER,
-	issuer: process.env.AUTH_DOMAIN,
-	alogorithms: process.env.ALGORITHMS
 });
 
 app.use('/buildlinks', buildLinksRouter);
