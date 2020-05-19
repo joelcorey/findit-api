@@ -9,13 +9,12 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const checkJwtMiddleware = require('./middleware/middleware-check-jwt')
+//const getJwtMiddleware = require('./middleware/middleware-get-token');
+//const checkJwtMiddleware = require('./middleware/middleware-check-jwt')
 
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
 const getCountsRouter = require('./city-counts/city-counts-router');
 const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
-
-app.use(checkJwtMiddleware);
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -27,6 +26,8 @@ app.use((req, res, next) => {
 	res.set('API-Version', '1');
 	return next();
 });
+
+//app.use(checkJwtMiddleware);
 
 app.use('/buildlinks', buildLinksRouter);
 app.use('/counts', getCountsRouter);
