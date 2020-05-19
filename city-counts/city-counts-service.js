@@ -18,7 +18,7 @@ const cityCountsService = {
 
     getCounts() {
         const counts = db.city_counts.findAll({
-            attributesd: [
+            attributes: [
                 'territory_name',
                 'city_country',
                 'total'

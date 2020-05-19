@@ -17,6 +17,6 @@ cityCountsRouter
 			return next(error);
 		}
 	
-	})
+	});
 
 module.exports = cityCountsRouter;

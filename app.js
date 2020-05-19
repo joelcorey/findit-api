@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);
 app.use('/counts', getCountsRouter);
-app.use('/city', scrapeLinksRouter);
+app.use('/cities', scrapeLinksRouter);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
 
