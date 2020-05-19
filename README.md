@@ -7,26 +7,10 @@ In development: Port old PHP Craigslist web scraper to Node/JavaScript using Pup
 Install dependencies:  
 ```npm i```  
   
-Place a .env file in the root directory with the following information in it:  
-```NODE_ENV=development```  
-```PORT=8000```  
-```API_TOKEN='<not-yet-used-probably-already-deprecated>```  
-```JWKS_URI=https://test-api.auth0.com/api/v2/.well-known/jwks.json```  
-```API_IDENTIFIER=https://test-api```  
-```AUTH_DOMAIN=https://test-api.auth0.com/api/v2/```  
-```ALGORITHMS=['RS256']```  
-```CLIENT_ID=<a-long-string-from-your-Auth0-application-settings>```  
-```CLIENT_SECRET=<an-even-longer-string-from-your-Auth0-application-settings>```  
-```DB_USER='<username>'```  
-```DB_PASSWORD='<password>'```  
-```DB_NAME='<database-name>'```  
-```DB_HOST='<ip-address-here>'```  
-```DB_PORT=5432```  
-  
+Rename .env.example to .env and replace relevant values in it.  
 For further information on JWKS_URI, API_IDENTIFIER, AUTH_DOMAIN, ALGORITHMS see here:  
 https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/  
-  
-To locate the CLIENT_ID and CLIENT_SECRET look under "Applications/Settings" in your Auth0 dashboard.
+To locate the CLIENT_ID and CLIENT_SECRET look under "Applications/Settings" in your Auth0 dashboard.  
 
 This project assumes a PostgreSQL database is installed and configred.  
    
