@@ -6,6 +6,7 @@ const cityScrapeUrlsService = require('./city-scrape-urls-service');
 const cityScrapeUrlsRouter = express.Router();
 
 cityScrapeUrlsRouter
+	// deprecated first version
 	// .route('/')
 	// .get(async (req, res, next) => {
 	
@@ -17,6 +18,7 @@ cityScrapeUrlsRouter
 	// 	} catch (error) {
 	// 		return next(error);
 	// 	}
+	
 	.route('/')
 	.post(async (req, res) => {
 		var data = req.body;

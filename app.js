@@ -10,6 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
+const getCountsRouter = require('./city-counts/city-counts-router');
 const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 
 // https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 // app.use(cors); // cors causing arror
 // app.use(morgan('combined'));
 app.use('/buildlinks', buildLinksRouter);
+app.use('/counts', getCountsRouter);
 app.use('/city', scrapeLinksRouter);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
