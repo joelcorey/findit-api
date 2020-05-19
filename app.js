@@ -18,6 +18,13 @@ const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
 app.use(bodyParser.json());
 // app.use(cors); // cors causing arror
 // app.use(morgan('combined'));
+
+// pass along API version in headers verse in restful state
+app.use((req, res, next) => {
+	res.set('API-Version', '1');
+	return next();
+});
+
 app.use('/buildlinks', buildLinksRouter);
 app.use('/counts', getCountsRouter);
 app.use('/cities', scrapeLinksRouter);
