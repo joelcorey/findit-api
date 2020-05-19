@@ -26,6 +26,10 @@ cityScrapeUrlsRouter
 
 		try {
 			const cities = await cityScrapeUrlsService.getCitiesInState(data.state);
+
+			// currently just return cities
+			// need to go through and scrape cities
+			// different end point for scraping cities as this is actualy useful? 
 			res.send(cities);
 		} catch (error) {
 			return next(error);
