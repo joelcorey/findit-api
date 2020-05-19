@@ -57,33 +57,33 @@ const buildData = async (url) => {
 	return result;
 };
 
-const getData = async (cities) => {
-	// console.log(cities);
-	for (let i = 0; i < cities.length; i++) {
-		for (let q = 0; q < configCommon.categories.length; q++) {
-			let url = cities[i].city_url + configCommon.categories[q];
-			// console.log(url);
-
-			// TODO: instead of adding to a MASSIVE object, output to database and continue
-			let data = await buildData(url)
-			return data;
-		}
-	}
-}
-
 // const getData = async (cities) => {
-// 	let dataContainer = [];
-
+// 	// console.log(cities);
 // 	for (let i = 0; i < cities.length; i++) {
 // 		for (let q = 0; q < configCommon.categories.length; q++) {
 // 			let url = cities[i].city_url + configCommon.categories[q];
 // 			// console.log(url);
+
+// 			// TODO: instead of adding to a MASSIVE object, output to database and continue
 // 			let data = await buildData(url)
-// 			dataContainer.push(data);
+// 			return data;
 // 		}
 // 	}
-
-// 	return dataContainer;
 // }
+
+const getData = async (cities) => {
+	let dataContainer = [];
+
+	for (let i = 0; i < cities.length; i++) {
+		for (let q = 0; q < configCommon.categories.length; q++) {
+			let url = cities[i].city_url + configCommon.categories[q];
+			// console.log(url);
+			let data = await buildData(url)
+			dataContainer.push(data);
+		}
+	}
+
+	return dataContainer;
+}
 
 module.exports = getData;
