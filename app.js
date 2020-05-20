@@ -23,7 +23,13 @@ app.use(morgan('combined'));
 
 // pass along API version in headers verse in restful state
 app.use((req, res, next) => {
-	res.set('API-Version', '1');
+	res.set({
+		'API-Version': '1',
+		// 'Access-Control-Allow-Origin': '*',
+		// 'Access-Control-Allow-Methods': ['GET, POST, PUT, DELETE'],
+		// 'Access-Control-Allow-Headers': 'Content-Type',
+		// 'Access-Control-Allow-Credentials': true,
+	});
 	return next();
 });
 

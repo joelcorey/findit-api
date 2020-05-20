@@ -26,18 +26,6 @@ const cityCountsService = {
         });
         return counts;
     }
-
 }
 
 module.exports = cityCountsService;
-
-// const cities = db.city_urls.findAll({
-//     attributes: [
-//         'city_name',
-//         'territory_name', 
-//         'city_url', 
-//         'city_country'
-//     ]
-// });
-// return cities;
-// },

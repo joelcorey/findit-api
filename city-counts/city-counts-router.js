@@ -5,7 +5,6 @@ const cityCountsService = require('./city-counts-service');
 const cityCountsRouter = express.Router();
 
 cityCountsRouter
-	// deprecated first version
 	.route('/')
 	.get(async (req, res, next) => {
 	
