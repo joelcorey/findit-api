@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-//const cors = require('cors');
+const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
@@ -22,13 +22,14 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 
 // pass along API version in headers verse in restful state
+// pass along aditional CORS headers
 app.use((req, res, next) => {
 	res.set({
 		'API-Version': '1',
-		// 'Access-Control-Allow-Origin': '*',
-		// 'Access-Control-Allow-Methods': ['GET, POST, PUT, DELETE'],
-		// 'Access-Control-Allow-Headers': 'Content-Type',
-		// 'Access-Control-Allow-Credentials': true,
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+		'Access-Control-Allow-Headers': 'Content-Type',
+		'Access-Control-Allow-Credentials': true,
 	});
 	return next();
 });

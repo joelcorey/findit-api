@@ -23,7 +23,7 @@ cityScrapeUrlsRouter
 	.route('/')
 	.post(async (req, res, next) => {
 		var data = req.body;
-
+		vardump(data)
 		try {
 			const cities = await cityScrapeUrlsService.getCitiesInState(data.state);
 			const jobData = await cityScrapeUrlsScraper(cities);
