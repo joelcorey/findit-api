@@ -57,6 +57,8 @@ const buildData = async (url) => {
 	return result;
 };
 
+// Both functions below deprecated. Useful for returning a large list of cities/scraped data to prevent over doing network requests
+
 // const getData = async (cities) => {
 // 	// console.log(cities);
 // 	for (let i = 0; i < cities.length; i++) {
