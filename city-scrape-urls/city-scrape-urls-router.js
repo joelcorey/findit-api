@@ -7,21 +7,27 @@ const cityScrapeUrlsService = require('./city-scrape-urls-service');
 const cityScrapeUrlsRouter = express.Router();
 
 cityScrapeUrlsRouter
-	.route('/')
+	.route('/links')
+	// 
 	.post(async (req, res, next) => {
 		var data = req.body;
 		vardump(data)
 		try {
 			const cities = await cityScrapeUrlsService.getCitiesInState(data.state);
-			
-			// This endpoint is returning a nested array, making data itteration difficult for frontend
-			// Move just cities to a different endpoint?
 			res.send(cities);
-
+		} catch (error) {
+			return next(error);
+		}
+	}) 
+	// TODO: will scrape individual links only, instead of return large data sets
+	.post(async (req, res, next) => {
+		var data = req.body;
+		try {
+			const city = await cityScrapeUrlsService.getCitiesInState(data.state);
 			// Specific city job data is to be fetched/called on a per job basis
 			// new endpoint: "city"
-			//const jobData = await cityScrapeUrlsScraper(cities);
-			//res.send(jobData)
+			const jobData = await cityScrapeUrlsScraper(city);
+			res.send(jobData)
 		} catch (error) {
 			return next(error);
 		}
