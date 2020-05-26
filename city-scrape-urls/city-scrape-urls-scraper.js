@@ -65,7 +65,6 @@ const buildData = async (url) => {
 // 		for (let q = 0; q < configCommon.categories.length; q++) {
 // 			let url = cities[i].city_url + configCommon.categories[q];
 // 			// console.log(url);
-
 // 			// TODO: instead of adding to a MASSIVE object, output to database and continue
 // 			let data = await buildData(url)
 // 			return data;
@@ -73,19 +72,19 @@ const buildData = async (url) => {
 // 	}
 // }
 
-const getData = async (cities) => {
-	let dataContainer = [];
-	for (let i = 0; i < 1; i++) {
-	//for (let i = 0; i < cities.length; i++) {
-		for (let q = 0; q < configCommon.categories.length; q++) {
-			let url = cities[i].city_url + configCommon.categories[q];
-			// console.log(url);
-			let data = await buildData(url)
-			dataContainer.push(data);
-		}
-	}
+// const getData = async (cities) => {
+// 	let dataContainer = [];
+// 	for (let i = 0; i < 1; i++) {
+// 	//for (let i = 0; i < cities.length; i++) {
+// 		for (let q = 0; q < configCommon.categories.length; q++) {
+// 			let url = cities[i].city_url + configCommon.categories[q];
+// 			// console.log(url);
+// 			let data = await buildData(url)
+// 			dataContainer.push(data);
+// 		}
+// 	}
 
-	return dataContainer;
-}
+// 	return dataContainer;
+// }
 
-module.exports = getData;
+module.exports = buildData;
