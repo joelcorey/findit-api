@@ -15,6 +15,7 @@ const port = process.env.PORT || 3000;
 const buildLinksRouter = require('./city-build-urls/city-build-urls-router');
 const getCountsRouter = require('./city-counts/city-counts-router');
 const scrapeLinksRouter = require('./city-scrape-urls/city-scrape-urls-router');
+const jobLinksRouter = require('./city-scrape-jobs/city-scrape-jobs-router');
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -39,6 +40,8 @@ app.use((req, res, next) => {
 app.use('/buildlinks', buildLinksRouter);
 app.use('/counts', getCountsRouter);
 app.use('/cities', scrapeLinksRouter);
+app.use('/jobs', jobLinksRouter);
+
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
 
