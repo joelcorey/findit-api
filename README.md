@@ -5,7 +5,7 @@ The frontend for this project can be found at:
 https://github.com/joelcorey/findit-api-frontend
 
 ## PostgreSQL setup help
-This project assumes a PostgreSQL database is installed and configred. 
+This project assumes a PostgreSQL database is installed and configred.  
 https://github.com/joelcorey/postgres-notes/blob/master/psql-ubuntu18.04-guide.MD
 
 ## Why?
