@@ -1,5 +1,13 @@
 # findit-api
 
+## Frontend
+The frontend for this project can be found at:  
+https://github.com/joelcorey/findit-api-frontend
+
+## PostgreSQL setup help
+This project assumes a PostgreSQL database is installed and configred. 
+https://github.com/joelcorey/postgres-notes/blob/master/psql-ubuntu18.04-guide.MD
+
 ## Why?
 In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.
 
@@ -11,8 +19,6 @@ Rename .env.example to .env and replace relevant values in it.
 For further information on JWKS_URI, API_IDENTIFIER, AUTH_DOMAIN, ALGORITHMS see here:  
 https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/  
 To locate the CLIENT_ID and CLIENT_SECRET look under "Applications/Settings" in your Auth0 dashboard.  
-
-This project assumes a PostgreSQL database is installed and configred.  
    
 Migrations are handled with the Sequelize CLI:  
 https://sequelize.org/master/manual/migrations.html  
