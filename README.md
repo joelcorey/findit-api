@@ -1,16 +1,19 @@
 # findit-api
-
+  
 ## Frontend
 The frontend for this project can be found at:  
 https://github.com/joelcorey/findit-api-frontend
-
+  
 ## PostgreSQL setup help
 This project assumes a PostgreSQL database is installed and configred.  
 https://github.com/joelcorey/postgres-notes/blob/master/psql-ubuntu18.04-guide.MD
-
+  
 ## Why?
-In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.
-
+In development: Port old PHP Craigslist web scraper to Node/JavaScript using Puppeteer.  
+  
+### Todo for both frontend and backend
+https://trello.com/b/nYBzDmmj/findit-api  
+  
 ## Installation
 Install dependencies:  
 ```npm i```  
@@ -31,10 +34,7 @@ to:
 Use config.example.js for reference.  
 And run migrations:  
 ```npx sequelize-cli db:migrate```  
-  
-### Todo
-https://trello.com/b/nYBzDmmj/findit-api  
-  
+    
 ### Useful links
 https://stackoverflow.com/questions/45790759/sequalize-migration-with-dotenv  
 https://stackabuse.com/adding-a-postgresql-database-to-a-node-js-app-on-heroku/  
