@@ -6,8 +6,19 @@ const filter = require('../util/filter.js');
 const useragent = require('../util/useragent.js');
 
 const buildData = async (url) => {
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch(
+		// {
+		// 	headless: false,
+		// 	args: ['--no-sandbox']
+		// }
+	);
 	const page = await browser.newPage();
+
+	// // useragent stuff
+	// await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
+	// const userAgent = await page.evaluate(() => navigator.userAgent );
+	// console.log('custom set useragent: ' + userAgent);
+
 	await page.goto(url, { 
 		waitUntil: 'networkidle2',
 		//waitForSelector: 'time'
