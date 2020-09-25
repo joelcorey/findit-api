@@ -25,7 +25,7 @@ const buildData = async (url) => {
 	const result = await page.evaluate(() => {
 		
 		let container = [];
-		let resultInfo = document.querySelectorAll(`p.result-info`);
+		let resultInfo = document.querySelectorAll(`div.result-info`);
 
 		for (let i = 0; i < resultInfo.length; i++) {
 
